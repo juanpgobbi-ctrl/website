@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan Gobbi — Ästhetische Medizin Berlin</title>
+  <meta name="description" content="Juan Gobbi, Arzt für ästhetische Medizin. Wir arbeiten dran.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans:  'Inter', -apple-system, sans-serif;
+      --ease:       cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      color: #fff;
+      background: #000;
+      letter-spacing: 0.01em;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    /* ── Main content ─────────────────────────── */
+    .content {
+      text-align: center;
+      animation: fadeIn 1.2s var(--ease);
+    }
+
+    .label {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s var(--ease) 0.2s both;
+    }
+
+    .title {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s var(--ease) 0.4s both;
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: #fff;
+      margin: 0 auto 2rem;
+      animation: expandWidth 0.8s var(--ease) 0.6s both;
+    }
+
+    .subtitle {
+      font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+      font-weight: 400;
+      letter-spacing: 0.025em;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+      animation: fadeInUp 0.8s var(--ease) 0.8s both;
+    }
+
+    .message {
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      font-weight: 300;
+      opacity: 0.7;
+      animation: fadeInUp 0.8s var(--ease) 1s both;
+    }
+
+    /* ── Unlock form ─────────────────────────── */
+    .unlock {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      animation: fadeInUp 0.8s var(--ease) 1.4s both;
+    }
+
+    .unlock__input {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      outline: none;
+      width: 120px;
+      padding: 0.25rem 0;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .unlock__input::placeholder { color: rgba(255,255,255,0.35); letter-spacing: 0.1em; }
+    .unlock__input:focus { border-color: rgba(255,255,255,0.6); }
+    .unlock__input.error { border-color: rgba(255,80,80,0.7); color: rgba(255,80,80,0.9); }
+
+    .unlock__btn {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.4);
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .unlock__btn:hover { color: #fff; }
+
+    /* ── Animations ───────────────────────────── */
+    @keyframes fadeIn    { from { opacity: 0 } to { opacity: 1 } }
+    @keyframes fadeInUp  { from { opacity: 0; transform: translateY(20px) } to { opacity: 1; transform: translateY(0) } }
+    @keyframes expandWidth { from { width: 0 } to { width: 60px } }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.01ms !important; }
+    }
+
+    ::selection { background: #fff; color: #000; }
+  </style>
+
+  <script>
+    var PASS = 'preview2026';  /* ← cambia esto */
+
+    function redirect() {
+      var lang = (navigator.language || 'de').toLowerCase();
+      if      (lang.startsWith('en')) location.replace('en/index.html');
+      else if (lang.startsWith('es')) location.replace('es/index.html');
+      else                            location.replace('de/index.html');
+    }
+  </script>
+</head>
+<body>
+
+  <div class="content">
+    <p class="label">Ästhetische Medizin Berlin</p>
+    <h1 class="title">Juan Gobbi</h1>
+    <div class="divider"></div>
+    <p class="subtitle">Arzt für ästhetische Medizin</p>
+    <p class="message">Wir arbeiten dran.</p>
+  </div>
+
+  <!-- Preview unlock — visible but subtle -->
+  <div class="unlock">
+    <input class="unlock__input" id="pass" type="password" placeholder="preview access" autocomplete="off" spellcheck="false">
+    <button class="unlock__btn" id="btn" aria-label="Unlock">→</button>
+  </div>
+
+  <script>
+    var input = document.getElementById('pass');
+    var btn   = document.getElementById('btn');
+
+    function tryUnlock() {
+      if (input.value === PASS) {
+        redirect();
+      } else {
+        input.value = '';
+        input.classList.add('error');
+        input.placeholder = 'incorrect';
+        setTimeout(function () {
+          input.classList.remove('error');
+          input.placeholder = 'preview access';
+        }, 1500);
+      }
+    }
+
+    btn.addEventListener('click', tryUnlock);
+    input.addEventListener('keydown', function (e) { if (e.key === 'Enter') tryUnlock(); });
+  </script>
+
+</body>
+</html>
