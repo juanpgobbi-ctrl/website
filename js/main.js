@@ -185,6 +185,10 @@ function markActiveNavLink() {
 }
 
 /* ─── Treatment Carousel ──────────────────────────────────────────── */
+// On phones one card is shown with the next one peeking in, plus position dots,
+// so it is obvious that the row can be swiped.
+const DOT_LABEL = { de: 'Karte', en: 'Card', es: 'Tarjeta' };
+
 class Carousel {
   constructor(trackId) {
     this.track   = document.getElementById(trackId);
@@ -195,6 +199,9 @@ class Carousel {
     this.btnNext = this.section && this.section.querySelector('.carousel-btn--next');
     this.cards   = Array.from(this.track.children);
     this.current = 0;
+    this.dots    = document.createElement('div');
+    this.dots.className = 'carousel-dots';
+    if (this.section) this.section.after(this.dots);
     this.init();
   }
 
@@ -208,39 +215,63 @@ class Carousel {
     this.track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
     this.track.addEventListener('touchend', e => {
       const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 50) diff > 0 ? this.next() : this.prev();
+      if (Math.abs(diff) > 35) diff > 0 ? this.next() : this.prev();
     });
   }
 
+  isPhone() { return window.innerWidth < 600; }
+
   visible() {
     return window.innerWidth >= 992 ? 3 : window.innerWidth >= 600 ? 2 : 1;
+  }
+
+  cardWidth() {
+    // Phones: 84 % so the next card peeks in from the right
+    return this.isPhone() ? this.wrap.offsetWidth * 0.84 : this.wrap.offsetWidth / this.visible();
   }
 
   maxSlide() {
     return Math.max(0, this.cards.length - this.visible());
   }
 
+  buildDots() {
+    const count = this.maxSlide() + 1;
+    if (this.dots.children.length === count) return;
+    const label = DOT_LABEL[document.documentElement.lang] || DOT_LABEL.en;
+    this.dots.innerHTML = '';
+    for (let i = 0; i < count; i++) {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'carousel-dot';
+      dot.setAttribute('aria-label', `${label} ${i + 1} / ${count}`);
+      dot.addEventListener('click', () => this.goTo(i));
+      this.dots.appendChild(dot);
+    }
+  }
+
   resize() {
-    const cardW = this.wrap.offsetWidth / this.visible();
+    const cardW = this.cardWidth();
     this.cards.forEach(c => { c.style.width = cardW + 'px'; c.style.flexBasis = cardW + 'px'; });
+    this.buildDots();
     this.goTo(Math.min(this.current, this.maxSlide()));
   }
 
   goTo(idx) {
     this.current = Math.max(0, Math.min(idx, this.maxSlide()));
-    const cardW  = this.wrap.offsetWidth / this.visible();
-    this.track.style.transform = `translateX(${-this.current * cardW}px)`;
-    
+    const cardW  = this.cardWidth();
+    const maxOffset = Math.max(0, cardW * this.cards.length - this.wrap.offsetWidth);
+    this.track.style.transform = `translateX(${-Math.min(this.current * cardW, maxOffset)}px)`;
+
     // Update active cards
     const visibleCount = this.visible();
     this.cards.forEach((card, i) => {
-      if (i >= this.current && i < this.current + visibleCount) {
-        card.classList.add('is-active');
-      } else {
-        card.classList.remove('is-active');
-      }
+      card.classList.toggle('is-active', i >= this.current && i < this.current + visibleCount);
     });
-    
+    Array.from(this.dots.children).forEach((dot, i) => {
+      dot.classList.toggle('is-active', i === this.current);
+      if (i === this.current) dot.setAttribute('aria-current', 'true'); else dot.removeAttribute('aria-current');
+    });
+
     if (this.btnPrev) this.btnPrev.disabled = (this.current === 0);
     if (this.btnNext) this.btnNext.disabled = (this.current === this.maxSlide());
   }

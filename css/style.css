@@ -1977,3 +1977,25 @@ a.treatment-card-home:hover::before { opacity: 0.8; transform: translateX(0); }
 .notice--light .notice__title { color: var(--text); }
 .notice--light p, .notice--light .notice__list li { color: var(--muted); }
 .notice--light .notice__list li::before { color: var(--faint); }
+
+/* ─── Carousel on phones: position dots (arrows are hidden < 40rem) ── */
+.carousel-dots { display: none; }
+@media (max-width: 40rem) {
+  .carousel-dots { display: flex; justify-content: center; gap: 0.25rem; margin-top: 1.25rem; }
+  .carousel-dot {
+    width: 24px; height: 24px; padding: 0; border: 0; background: none; cursor: pointer;
+    display: grid; place-items: center;
+  }
+  .carousel-dot::before {
+    content: ''; width: 6px; height: 6px; border-radius: 3px;
+    background: var(--dark-muted); opacity: 0.45;
+    transition: width 0.3s var(--ease-out-expo), opacity 0.3s;
+  }
+  .carousel-dot.is-active::before { width: 18px; opacity: 1; background: var(--dark-text); }
+  .carousel-track-wrap::before { width: 12px; }
+}
+
+/* ─── Headings: no orphan words; desktop-only line breaks ─────────── */
+h1, h2 { text-wrap: balance; }
+@media (max-width: 40rem) { .br-desk { display: none; } }
+
