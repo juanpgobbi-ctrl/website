@@ -4,10 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Juan Gobbi — Medical Aesthetics Berlin</title>
-  <meta name="description" content="Medical aesthetics in Berlin. Natural results through anatomical understanding and medical expertise. Botox, hyaluronic acid fillers, biostimulators, lipolysis, mesotherapy.">
+  <meta name="description" content="Medical aesthetics in Berlin with a physician’s eye and anatomical understanding. Wrinkle treatment, lip fillers, biostimulators, fat-dissolving injections, skin boosters.">
+  <link rel="canonical" href="https://juangobbi.de/en/index.html">
+  <link rel="alternate" hreflang="de" href="https://juangobbi.de/de/index.html">
+  <link rel="alternate" hreflang="en" href="https://juangobbi.de/en/index.html">
+  <link rel="alternate" hreflang="es" href="https://juangobbi.de/es/index.html">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#111110">
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Juan Gobbi — Medical Aesthetics Berlin">
+  <meta property="og:description" content="Medical aesthetics in Berlin with a physician’s eye and anatomical understanding. Wrinkle treatment, lip fillers, biostimulators, fat-dissolving injections, skin boosters.">
+  <meta property="og:url" content="https://juangobbi.de/en/index.html">
+  <meta property="og:image" content="https://juangobbi.de/images/hero-piel-1280.jpg">
+  <meta property="og:locale" content="en_GB">
+  <link rel="preload" as="image" href="../images/hero-piel-movil.jpg" media="(max-width: 48rem)" fetchpriority="high">
+  <link rel="preload" as="image" imagesrcset="../images/hero-piel-1280.jpg 1280w, ../images/hero-piel-1920.jpg 1920w" imagesizes="100vw" media="(min-width: 48.01rem)" fetchpriority="high">
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/playfair-display-latin-700-normal.woff2" crossorigin>
   <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Physician", "name": "Juan Gobbi", "description": "Physician in Berlin focusing on medical aesthetics, with a background in surgery and intensive care.", "url": "https://juangobbi.de/en/index.html", "image": "https://juangobbi.de/images/juan-gobbi-arzt-berlin-cutout-bn.png", "knowsLanguage": ["de", "en", "es", "fr"], "address": {"@type": "PostalAddress", "streetAddress": "Oberwallstraße 7", "postalCode": "10117", "addressLocality": "Berlin", "addressCountry": "DE"}, "memberOf": {"@type": "Organization", "name": "Ärztekammer Berlin", "url": "https://www.aekb.de"}}
+  </script>
+  <noscript><style>.reveal{opacity:1;transform:none}.treatment-card-home{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
+<a class="skip-link" href="#inhalt">Skip to content</a>
 
 <nav class="nav">
   <div class="nav__inner">
@@ -42,8 +64,8 @@
 </div>
 
 <!-- ── Hero ──────────────────────────────────────────────────────── -->
-<section class="hero">
-  <div class="hero__bg"></div>
+<section class="hero" id="inhalt">
+  <div class="hero__bg"><picture><source media="(max-width: 48rem)" srcset="../images/hero-piel-movil.jpg" width="900" height="1200"><img class="hero__photo" src="../images/hero-piel-1920.jpg" srcset="../images/hero-piel-1280.jpg 1280w, ../images/hero-piel-1920.jpg 1920w" sizes="100vw" width="1920" height="1080" alt="Black-and-white close-up of a hand resting gently on the face, showing natural skin texture" fetchpriority="high" decoding="async"></picture></div>
   <div class="hero__overlay"></div>
   <div class="hero__grain"></div>
   <div class="hero__content container">
@@ -66,8 +88,8 @@
 <section id="intro" class="section">
   <div class="container">
     <div class="intro reveal">
-      <p>I'm Juan Gobbi — a physician trained in Buenos Aires, practicing in Berlin. My background in surgery and intensive care shapes how I approach aesthetic treatments: <em>precise, anatomically informed, and always restrained.</em></p>
-      <p class="intro__sub">My goal is never an obvious result — but a harmonious one.</p>
+      <p>I’m Juan Gobbi, a physician trained in Buenos Aires and practising in Berlin for over five years. Several years in general and plastic surgery, and today intensive care, shape how I approach aesthetic treatments: <em>anatomically informed and restrained.</em></p>
+      <p class="intro__sub">The goal is not to change you, but to enhance what is there, naturally and in balance.</p>
     </div>
   </div>
 </section>
@@ -76,7 +98,8 @@
 <section class="section section--dark">
   <div class="container">
     <div class="reveal">
-      <span class="label label--light">What I offer</span>
+      <span class="label label--light">Treatments</span>
+      <h2 class="heading-lg" style="color:var(--dark-text); max-width:20ch; margin-top:0.5rem;">Medicine and aesthetics, in measure.</h2>
     </div>
     <div class="treatment-carousel reveal">
       <button class="carousel-btn carousel-btn--prev" aria-label="Previous" disabled>
@@ -84,51 +107,42 @@
       </button>
       <div class="carousel-track-wrap">
         <div class="carousel-track" id="treatmentTrack">
-          <div class="treatment-card-home">
-            <span class="treatment-card-home__num">01</span>
-            <h3 class="treatment-card-home__title">Wrinkle Treatment</h3>
-            <p class="treatment-card-home__text">Targeted relaxation of overactive facial muscles. Forehead lines, frown lines, crow's feet — a rested expression without losing natural movement.</p>
-          </div>
-          <div class="treatment-card-home">
-            <span class="treatment-card-home__num">02</span>
-            <h3 class="treatment-card-home__title">Bruxism Treatment</h3>
-            <p class="treatment-card-home__text">Relaxation of the masseter muscle for teeth grinding and jaw pain — therapeutically effective and optionally slimming the facial oval.</p>
-          </div>
-          <div class="treatment-card-home">
-            <span class="treatment-card-home__num">03</span>
-            <h3 class="treatment-card-home__title">Migraine Treatment</h3>
-            <p class="treatment-card-home__text">Therapeutic use for the prevention of chronic migraine attacks. Scientifically recognised, individually dosed.</p>
-          </div>
-          <div class="treatment-card-home">
-            <span class="treatment-card-home__num">04</span>
-            <h3 class="treatment-card-home__title">Lip Volume</h3>
-            <p class="treatment-card-home__text">Subtle volume enhancement and contouring of the lips with hyaluronic acid. Natural results that suit your features.</p>
-          </div>
-          <div class="treatment-card-home">
-            <span class="treatment-card-home__num">05</span>
-            <h3 class="treatment-card-home__title">Non-Surgical Nose Correction</h3>
-            <p class="treatment-card-home__text">Smoothing irregularities and lifting the tip with hyaluronic acid — minimally invasive, no downtime.</p>
-          </div>
-          <div class="treatment-card-home">
-            <span class="treatment-card-home__num">06</span>
-            <h3 class="treatment-card-home__title">Fat Dissolving Injection</h3>
-            <p class="treatment-card-home__text">Non-surgical reduction of localised fat deposits such as double chin. Permanent results without surgery.</p>
-          </div>
-          <div class="treatment-card-home">
-            <span class="treatment-card-home__num">07</span>
-            <h3 class="treatment-card-home__title">Skin Rejuvenation</h3>
-            <p class="treatment-card-home__text">Biostimulators stimulate the body's own collagen production. Firmer, more elastic skin — from within, without changing the face.</p>
-          </div>
-          <div class="treatment-card-home">
-            <span class="treatment-card-home__num">08</span>
-            <h3 class="treatment-card-home__title">Skin Booster</h3>
-            <p class="treatment-card-home__text">Individual combinations of vitamins and hyaluronic acid. Brighter, deeply hydrated skin.</p>
-          </div>
-          <div class="treatment-card-home">
-            <span class="treatment-card-home__num">09</span>
-            <h3 class="treatment-card-home__title">Salmon Sperm Treatment</h3>
-            <p class="treatment-card-home__text">PDRN — polynucleotides derived from salmon DNA — stimulate deep tissue repair, improve hydration and restore skin density. Ideal for delicate areas such as the eye contour and neck.</p>
-          </div>
+          <a href="treatments.html#faltenbehandlung" class="treatment-card-home">
+            <h3 class="treatment-card-home__title">Wrinkle treatment</h3>
+            <p class="treatment-card-home__text">Forehead, frown lines, crow’s feet: relaxed muscles and a rested look, without a frozen expression.</p>
+          </a>
+          <a href="treatments.html#filler" class="treatment-card-home">
+            <h3 class="treatment-card-home__title">Lip fillers</h3>
+            <p class="treatment-card-home__text">Subtle volume and a clear contour with hyaluronic acid, in proportion to your face.</p>
+          </a>
+          <a href="treatments.html#biostimulatoren" class="treatment-card-home">
+            <h3 class="treatment-card-home__title">Skin rejuvenation</h3>
+            <p class="treatment-card-home__text">Your skin is encouraged to make its own collagen and can look firmer and fresher over time, without changing your face.</p>
+          </a>
+          <a href="treatments.html#faltenbehandlung" class="treatment-card-home">
+            <h3 class="treatment-card-home__title">Teeth grinding</h3>
+            <p class="treatment-card-home__text">Relaxing the jaw muscle for bruxism and jaw pain. The face often looks a little slimmer afterwards.</p>
+          </a>
+          <a href="treatments.html#filler" class="treatment-card-home">
+            <h3 class="treatment-card-home__title">Non-surgical nose job</h3>
+            <p class="treatment-card-home__text">Smoothing small irregularities of the nasal bridge with hyaluronic acid, without surgery.</p>
+          </a>
+          <a href="treatments.html#lipolyse" class="treatment-card-home">
+            <h3 class="treatment-card-home__title">Fat-dissolving injections</h3>
+            <p class="treatment-card-home__text">For small fat pockets such as a double chin, without surgery. Long-lasting with a stable weight.</p>
+          </a>
+          <a href="treatments.html#mesotherapie" class="treatment-card-home">
+            <h3 class="treatment-card-home__title">Skin booster</h3>
+            <p class="treatment-card-home__text">Vitamins and hyaluronic acid delivered into the skin for more hydration and freshness.</p>
+          </a>
+          <a href="treatments.html#faltenbehandlung" class="treatment-card-home">
+            <h3 class="treatment-card-home__title">Migraine</h3>
+            <p class="treatment-card-home__text">Treatment for chronic migraine, only after a neurological diagnosis and with a medical indication. We discuss it in the consultation.</p>
+          </a>
+          <a href="treatments.html#biostimulatoren" class="treatment-card-home">
+            <h3 class="treatment-card-home__title">Salmon DNA</h3>
+            <p class="treatment-card-home__text">Also known as “salmon sperm”. Supports the regeneration of thin skin under the eyes and on the neck.</p>
+          </a>
         </div>
       </div>
       <button class="carousel-btn carousel-btn--next" aria-label="Next">
@@ -146,13 +160,12 @@
   <div class="container">
     <div class="about-split">
       <div class="about-split__image reveal">
-        <img src="../images/foto 1.jpg" alt="Juan Gobbi, physician in medical aesthetics, Berlin" loading="lazy">
+        <picture><source srcset="../images/juan-gobbi-arzt-berlin-cutout-bn.webp" type="image/webp"><img src="../images/juan-gobbi-arzt-berlin-cutout-bn.png" alt="Portrait of Juan Gobbi, physician focusing on medical aesthetics in Berlin, black and white, smiling, dark shirt, light background" width="1200" height="1200" loading="lazy"></picture>
       </div>
       <div class="about-split__content reveal">
         <span class="label">About me</span>
         <h2 class="heading-xl mb-4">Medical expertise meets <em>aesthetic sensibility.</em></h2>
-        <p class="text-large">I work at the intersection of medicine and aesthetics. What sets me apart is not just technique — but an understanding of what keeps a face in balance.</p>
-        <p class="text-muted mt-3">Trained in Buenos Aires · Surgery & intensive care in Berlin · Aesthetic medicine since 2022</p>
+        <p class="text-large">Every treatment rests on anatomy and facial balance. Behind each decision is medical judgement, not just technique.</p>
         <a href="about.html" class="btn mt-6">Learn more</a>
       </div>
     </div>
@@ -169,15 +182,15 @@
     <div class="faq-preview reveal">
       <div class="faq-preview__item">
         <p class="faq-preview__q">How does my first appointment work?</p>
-        <p class="faq-preview__a">Every treatment starts with a detailed consultation. Only after discussing options and establishing medical indication will I proceed — never the other way around.</p>
+        <p class="faq-preview__a">Every treatment starts with a detailed consultation. I only treat once we have weighed the options together and there is a medical indication.</p>
       </div>
       <div class="faq-preview__item">
         <p class="faq-preview__q">Will the results look natural?</p>
-        <p class="faq-preview__a">That is always the goal. No exaggerated volume, no frozen expression — an improvement you feel without it being immediately obvious.</p>
+        <p class="faq-preview__a">That is my main goal: no exaggerated volume, no frozen expression, but changes that look as natural as possible.</p>
       </div>
       <div class="faq-preview__item">
-        <p class="faq-preview__q">Who are these treatments for?</p>
-        <p class="faq-preview__a">For adults seeking targeted, medically supervised aesthetic treatment. In the consultation we'll discuss together what makes sense for you.</p>
+        <p class="faq-preview__q">Do you also treat men?</p>
+        <p class="faq-preview__a">Yes, many of my patients are men. I adapt the treatment to their anatomy and their wishes.</p>
       </div>
     </div>
     <div class="text-center mt-6 reveal">
@@ -192,8 +205,8 @@
     <div class="text-center reveal">
       <span class="label">Book a consultation</span>
       <h2 class="heading-xl mb-4">Every treatment begins<br>with <em>a conversation.</em></h2>
-      <p class="text-muted" style="max-width: 40ch; margin: 0 auto 2.5rem;">Indication, informed consent and safety come before any injection. I take the time that each consultation deserves.</p>
-      <a href="contact.html" class="btn">Get in touch</a>
+      <p class="text-muted" style="max-width: 44ch; margin: 0 auto 2.5rem;">A calm conversation, without pressure. Indication, informed consent and safety come before any injection.</p>
+      <a href="contact.html" class="btn">Book a consultation</a>
     </div>
   </div>
 </section>

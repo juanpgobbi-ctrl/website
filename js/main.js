@@ -254,8 +254,10 @@ class GroupAccordion {
   constructor() {
     this.triggers = Array.from(document.querySelectorAll('.faq-group__trigger'));
     if (!this.triggers.length) return;
-    // Open first group by default
-    const first = this.triggers[0];
+    // Open the group named in the URL hash (links from treatment modals), else the first
+    const target = location.hash && document.getElementById(location.hash.slice(1));
+    const fromHash = target && target.querySelector('.faq-group__trigger');
+    const first = fromHash || this.triggers[0];
     if (first) {
       first.setAttribute('aria-expanded', 'true');
       const body = first.nextElementSibling;
@@ -312,6 +314,83 @@ class GroupAccordion {
   }
 }
 
+/* ─── Modal (treatment detail popups) ─────────────────────────────── */
+class Modals {
+  constructor() {
+    this.triggers = Array.from(document.querySelectorAll('[data-modal]'));
+    this.modals   = Array.from(document.querySelectorAll('.modal'));
+    if (!this.triggers.length) return;
+    this.lastFocus = null;
+    this.init();
+  }
+
+  init() {
+    this.triggers.forEach(t =>
+      t.addEventListener('click', () => this.open(t.getAttribute('data-modal'), t))
+    );
+    this.modals.forEach(m => {
+      m.addEventListener('click', e => {
+        if (e.target === m || e.target.closest('[data-close]')) this.close(m);
+      });
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        const open = this.modals.find(m => m.classList.contains('is-open'));
+        if (open) this.close(open);
+      }
+    });
+  }
+
+  open(id, trigger) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    this.lastFocus = trigger || document.activeElement;
+    modal.inert = false;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    const close = modal.querySelector('.modal__close');
+    if (close) close.focus();
+  }
+
+  close(modal) {
+    modal.classList.remove('is-open');
+    modal.inert = true;
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (this.lastFocus) this.lastFocus.focus();
+  }
+}
+
+/* ─── Facial treatment map (link points ↔ list) ──────────────────── */
+class FaceMap {
+  constructor() {
+    this.root = document.querySelector('.face-map');
+    if (!this.root) return;
+    this.points = Array.from(this.root.querySelectorAll('.face-point'));
+    this.items  = Array.from(this.root.querySelectorAll('.face-map__item'));
+    this.init();
+  }
+
+  init() {
+    const bind = (el) => {
+      const zone = el.getAttribute('data-zone');
+      el.addEventListener('mouseenter', () => this.activate(zone));
+      el.addEventListener('mouseleave', () => this.activate(null));
+      el.addEventListener('focus', () => this.activate(zone));
+      el.addEventListener('click', () => this.activate(zone));
+    };
+    this.points.forEach(bind);
+    this.items.forEach(bind);
+  }
+
+  activate(zone) {
+    [...this.points, ...this.items].forEach(el => {
+      el.classList.toggle('is-active', zone !== null && el.getAttribute('data-zone') === zone);
+    });
+  }
+}
+
 /* ─── Init ────────────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   new Nav();
@@ -319,6 +398,8 @@ document.addEventListener('DOMContentLoaded', () => {
   new GroupAccordion();
   new Carousel('treatmentTrack');
   new Reveal();
+  new Modals();
+  new FaceMap();
   initSmoothScroll();
   markActiveNavLink();
 });

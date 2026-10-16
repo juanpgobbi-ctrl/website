@@ -1,2 +1,0 @@
-# aesthetic-practice-website
-
