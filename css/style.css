@@ -1999,3 +1999,24 @@ a.treatment-card-home:hover::before { opacity: 0.8; transform: translateX(0); }
 h1, h2 { text-wrap: balance; }
 @media (max-width: 40rem) { .br-desk { display: none; } }
 
+
+/* ─── Hero on phones: breathing room under the buttons (.container reset the padding to 0) ── */
+@media (max-width: 48rem) {
+  .hero .hero__content { padding-bottom: 3rem; }
+  .hero__actions { gap: 0.875rem; }
+}
+
+/* ─── Fillers: two sub-blocks (hyaluronic acid / CaHA), each with its own facts card ── */
+.treatment-block__subhead {
+  font-family: var(--serif);
+  font-size: 1.375rem;
+  font-weight: 400;
+  color: var(--text);
+  margin: 2.75rem 0 1rem;
+  scroll-margin-top: 5.5rem;
+}
+.treatment-block__meta.treatment-block__meta--inline { margin: 1.5rem 0 0; background: var(--bg-alt); box-shadow: none; }
+.treatment-photo + .treatment-block__actions { margin-top: 1.75rem; }
+
+/* ─── Notice: secondary lines smaller ─────────────────────────────── */
+.notice p.notice__small { font-size: 0.875rem; line-height: 1.7; }
