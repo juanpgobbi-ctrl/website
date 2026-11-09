@@ -2006,17 +2006,10 @@ h1, h2 { text-wrap: balance; }
   .hero__actions { gap: 0.875rem; }
 }
 
-/* ─── Fillers: two sub-blocks (hyaluronic acid / CaHA), each with its own facts card ── */
-.treatment-block__subhead {
-  font-family: var(--serif);
-  font-size: 1.375rem;
-  font-weight: 400;
-  color: var(--text);
-  margin: 2.75rem 0 1rem;
-  scroll-margin-top: 5.5rem;
-}
-.treatment-block__meta.treatment-block__meta--inline { margin: 1.5rem 0 0; background: var(--bg-alt); box-shadow: none; }
-.treatment-photo + .treatment-block__actions { margin-top: 1.75rem; }
+.bio-sub__item { scroll-margin-top: 5.5rem; }
 
 /* ─── Notice: secondary lines smaller ─────────────────────────────── */
 .notice p.notice__small { font-size: 0.875rem; line-height: 1.7; }
+
+/* ─── Home: carousel opens the section, no heading above it ───────── */
+.container > .treatment-carousel:first-child { margin-top: 0; }
